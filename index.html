@@ -18,8 +18,11 @@
     <script>
       function openWin() {
         const popup = window.open("https://test-window-b.vercel.app/");
-
-        popup.postMessage("hello", "https://test-window-a.vercel.app/");
+        const domain = window.location.origin;
+        console.log("🚀 ~ file: index.html:22 ~ openWin ~ domain:", domain);
+        setInterval(() => {
+          popup.postMessage("hello", domain);
+        }, 2000);
       }
 
       // const frame = document.getElementById("window-b");
