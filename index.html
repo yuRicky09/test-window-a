@@ -7,12 +7,15 @@
     <title>Document</title>
   </head>
   <body>
-    <div>hi</div>
+    <div>h1</div>
+    <button id="open">打開分頁</button>
     <script>
-      const childWindow = window.open("https://test-window-b.vercel.app/");
+      const btn = document.querySelector("#open");
+      btn.addEventListener("click", () => {
+        const popup = window.open("https://test-window-b.vercel.app/");
 
-      const message = "Hello from parent window!";
-      childWindow.postMessage(message, "https://test-window-b.vercel.app/");
+        popup.postMessage("hello from web-1", "*");
+      });
 
       // function openWin() {
       //   const popup = window.open("https://test-window-b.vercel.app/");
