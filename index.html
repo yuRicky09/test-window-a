@@ -17,18 +17,20 @@
     </iframe>
     <script>
       function openWin() {
-        window.open(
+        const popup = window.open(
           "https://test-window-b.vercel.app/",
           "",
           "width=1000,height=1000"
         );
+
+        popup.postMessage("hello", "https://test-window-b.vercel.app/");
       }
 
-      const frame = document.getElementById("window-b");
-      frame.contentWindow.postMessage(
-        { location: window.location.origin },
-        "https://test-window-b.vercel.app/"
-      );
+      // const frame = document.getElementById("window-b");
+      // frame.contentWindow.postMessage(
+      //   { location: window.location.origin },
+      //   "https://test-window-b.vercel.app/"
+      // );
     </script>
   </body>
 </html>
