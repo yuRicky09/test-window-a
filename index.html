@@ -17,11 +17,7 @@
     </iframe> -->
     <script>
       function openWin() {
-        const popup = window.open(
-          "https://test-window-b.vercel.app/",
-          "",
-          "width=1000,height=1000"
-        );
+        const popup = window.open("https://test-window-b.vercel.app/");
 
         popup.postMessage("hello", "https://test-window-b.vercel.app/");
       }
