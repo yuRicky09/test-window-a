@@ -22,7 +22,7 @@
 
       document.getElementById("btn").addEventListener("click", () => {
         iframe.postMessage(
-          `我的domain是https://test-window-a.vercel${window.origin}`,
+          `我的domain是${window.origin}`,
           "https://test-window-b.vercel.app/"
         );
       });
