@@ -5,6 +5,16 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
+  </head>
+  <body>
+    <input type="button" value="打開B網站" onclick="openWin()" />
+    <iframe
+      id="window-b"
+      src="https://test-window-b.vercel.app/"
+      height="500px"
+      width="500px"
+    >
+    </iframe>
     <script>
       function openWin() {
         window.open(
@@ -13,15 +23,12 @@
           "width=1000,height=1000"
         );
       }
+
+      const frame = document.getElementById("window-b");
+      frame.contentWindow.postMessage(
+        { location: window.location.origin },
+        "https://test-window-b.vercel.app/"
+      );
     </script>
-  </head>
-  <body>
-    <input type="button" value="打開B網站" onclick="openWin()" />
-    <iframe
-      src="https://test-window-b.vercel.app/"
-      height="500px"
-      width="500px"
-    >
-    </iframe>
   </body>
 </html>
