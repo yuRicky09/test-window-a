@@ -7,38 +7,25 @@
     <title>Document</title>
   </head>
   <body>
-    <div>h1</div>
-    <button id="open">打開分頁</button>
-    <script>
-      const btn = document.querySelector("#open");
-      btn.addEventListener("click", () => {
-        const popup = window.open("https://test-window-b.vercel.app/");
-
-        popup.postMessage("hello from web-1", "*");
-      });
-
-      // function openWin() {
-      //   const popup = window.open("https://test-window-b.vercel.app/");
-      //   const domain = window.location.origin;
-      //   console.log("🚀 ~ file: index.html:22 ~ openWin ~ domain:", domain);
-      //   setInterval(() => {
-      //     popup.postMessage("hello", domain);
-      //   }, 2000);
-      // }
-
-      // const frame = document.getElementById("window-b");
-      // frame.contentWindow.postMessage(
-      //   { location: window.location.origin },
-      //   "https://test-window-b.vercel.app/"
-      // );
-    </script>
-    <!-- <input type="button" value="打開B網站" onclick="openWin()" /> -->
-    <!-- <iframe
-      id="window-b"
+    <h1>我是A分頁</h1>
+    <button id="btn">點我傳送訊息給iframe</button>
+    <iframe
+      id="iframe"
       src="https://test-window-b.vercel.app/"
-      height="500px"
       width="500px"
-    >
-    </iframe> -->
+      height="500px"
+      frameborder="0"
+    ></iframe>
   </body>
+
+  <script>
+    const iframe = document.getElementById("iframe").contentWindow;
+
+    document.getElementById("btn").addEventListener("click", () => {
+      iframe.postMessage(
+        "我的domain是https://test-window-a.vercel",
+        "https://test-window-b.vercel.app/"
+      );
+    });
+  </script>
 </html>
