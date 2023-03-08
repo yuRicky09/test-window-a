@@ -11,6 +11,7 @@
     <button id="btn">點我傳送訊息給iframe</button>
     <button id="btn2">點我跳到分頁B</button>
     <button id="btn3">點我跳到分頁C</button>
+    <button id="btn4">點我傳訊息給分頁C</button>
     <iframe
       id="iframe"
       src="https://test-window-b.vercel.app/"
@@ -37,10 +38,12 @@
       document.getElementById("btn3").addEventListener("click", () => {
         const popup = window.open("https://steady-centaur-77a624.netlify.app/");
 
-        popup.postMessage(
-          `我的domain是${window.origin}`,
-          "https://steady-centaur-77a624.netlify.app/"
-        );
+        document.getElementById("btn4").addEventListener("click", () => {
+          popup.postMessage(
+            `我的domain是${window.origin}`,
+            "https://steady-centaur-77a624.netlify.app/"
+          );
+        });
       });
     </script>
   </body>
