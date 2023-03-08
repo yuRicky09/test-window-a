@@ -9,6 +9,7 @@
   <body>
     <h1>我是A分頁</h1>
     <button id="btn">點我傳送訊息給iframe</button>
+    <button id="btn2">點我跳到分頁B</button>
     <iframe
       id="iframe"
       src="https://test-window-b.vercel.app/"
@@ -25,6 +26,11 @@
           `我的domain是${window.origin}`,
           "https://test-window-b.vercel.app/"
         );
+      });
+
+      document.getElementById("btn2").addEventListener("click", () => {
+        const popup = window.open("https://test-window-b.vercel.app");
+        console.log(popup.origin);
       });
     </script>
   </body>
