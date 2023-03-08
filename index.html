@@ -6,26 +6,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
   </head>
-
-  <script>
-    var childWindow = window.open(
-      "https://test-window-b.vercel.app/",
-      "childWindowName"
-    );
-
-    var message = "Hello from parent window!";
-    childWindow.postMessage(message, "https://test-window-b.vercel.app/");
-  </script>
   <body>
-    <!-- <input type="button" value="打開B網站" onclick="openWin()" /> -->
-    <!-- <iframe
-      id="window-b"
-      src="https://test-window-b.vercel.app/"
-      height="500px"
-      width="500px"
-    >
-    </iframe> -->
+    <div>hi</div>
     <script>
+      const childWindow = window.open("https://test-window-b.vercel.app/");
+
+      const message = "Hello from parent window!";
+      childWindow.postMessage(message, "https://test-window-b.vercel.app/");
+
       // function openWin() {
       //   const popup = window.open("https://test-window-b.vercel.app/");
       //   const domain = window.location.origin;
@@ -41,5 +29,13 @@
       //   "https://test-window-b.vercel.app/"
       // );
     </script>
+    <!-- <input type="button" value="打開B網站" onclick="openWin()" /> -->
+    <!-- <iframe
+      id="window-b"
+      src="https://test-window-b.vercel.app/"
+      height="500px"
+      width="500px"
+    >
+    </iframe> -->
   </body>
 </html>
