@@ -32,6 +32,10 @@
         const popup = window.open("https://test-window-b.vercel.app");
         console.log(popup.origin);
       });
+
+      const res = await fetch("https://test-window-b.vercel.app/");
+      const data = await res.json()
+      console.log("🚀 ~ file: index.html:38 ~ data:", data)
     </script>
   </body>
 </html>
