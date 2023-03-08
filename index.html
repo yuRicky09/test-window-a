@@ -9,6 +9,7 @@
   <body>
     <h1>我是A分頁</h1>
     <button id="btn">點我傳送訊息給iframe</button>
+    <button id="btn2">點我跳到分頁B</button>
     <button id="btn2">點我跳到分頁C</button>
     <iframe
       id="iframe"
@@ -29,17 +30,18 @@
       });
 
       document.getElementById("btn2").addEventListener("click", () => {
-        const popup = window.open("https://steady-centaur-77a624.netlify.app/");
+        const popup = window.open("https://test-window-b.vercel.app/");
         console.log(popup.origin);
       });
 
-      async function getData() {
-        const res = await fetch("https://test-window-b.vercel.app/");
-        const data = await res.json();
-        console.log("🚀 ~ file: index.html:38 ~ data:", data);
-      }
+      document.getElementById("btn3").addEventListener("click", () => {
+        const popup = window.open("https://test-window-b.vercel.app/");
 
-      getData();
+        popup.postMessage(
+          `我的domain是${window.origin}`,
+          "https://steady-centaur-77a624.netlify.app/"
+        );
+      });
     </script>
   </body>
 </html>
