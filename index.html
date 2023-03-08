@@ -6,6 +6,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
   </head>
+
+  <script>
+    var childWindow = window.open(
+      "https://test-window-b.vercel.app/",
+      "childWindowName"
+    );
+
+    var message = "Hello from parent window!";
+    childWindow.postMessage(message, "https://test-window-b.vercel.app/");
+  </script>
   <body>
     <!-- <input type="button" value="打開B網站" onclick="openWin()" /> -->
     <!-- <iframe
@@ -15,30 +25,6 @@
       width="500px"
     >
     </iframe> -->
-
-    <h1 class="cover-heading">HTML send Post Message demo sample.</h1>
-    <p class="lead">
-      <button id="openWindow" type="button" class="btn btn-info">
-        開啟視窗
-      </button>
-    </p>
-    <div class="input-group">
-      <input
-        type="text"
-        id="messageText"
-        class="form-control"
-        placeholder="輸入訊息"
-      />
-      <div class="input-group-append">
-        <button
-          id="postWindow"
-          class="btn btn-info btn-outline-secondary"
-          type="button"
-        >
-          送出訊息
-        </button>
-      </div>
-    </div>
     <script>
       // function openWin() {
       //   const popup = window.open("https://test-window-b.vercel.app/");
@@ -54,28 +40,6 @@
       //   { location: window.location.origin },
       //   "https://test-window-b.vercel.app/"
       // );
-
-      var createWindow;
-      document
-        .getElementById("openWindow")
-        .addEventListener("click", function (e) {
-          // 將變數 assign window open 物件
-          createWindow = window.open("https://test-window-b.vercel.app/");
-        });
-      document
-        .getElementById("postWindow")
-        .addEventListener("click", function (e) {
-          sendMsg();
-        });
-      function sendMsg() {
-        var message = document.getElementById("messageText").value;
-        var domain = window.location.origin;
-        // post message
-        createWindow.postMessage(message, domain);
-        // focus windowOpen
-        createWindow.focus();
-        document.getElementById("messageText").value = "";
-      }
     </script>
   </body>
 </html>
