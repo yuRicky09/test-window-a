@@ -16,16 +16,16 @@
       height="500px"
       frameborder="0"
     ></iframe>
+
+    <script>
+      const iframe = document.getElementById("iframe").contentWindow;
+
+      document.getElementById("btn").addEventListener("click", () => {
+        iframe.postMessage(
+          "我的domain是https://test-window-a.vercel",
+          "https://test-window-b.vercel.app/"
+        );
+      });
+    </script>
   </body>
-
-  <script>
-    const iframe = document.getElementById("iframe").contentWindow;
-
-    document.getElementById("btn").addEventListener("click", () => {
-      iframe.postMessage(
-        "我的domain是https://test-window-a.vercel",
-        "https://test-window-b.vercel.app/"
-      );
-    });
-  </script>
 </html>
